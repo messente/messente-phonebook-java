@@ -1,10 +1,10 @@
 
-# PhoneNumberSubmittedToBlacklist
+# NumberToBlacklist
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**phoneNumber** | **String** |  | 
+**phoneNumber** | **String** | Phone number in e.164 format | 
 
 
 

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="addToBlacklist"></a>
 # **addToBlacklist**
-> addToBlacklist(phoneNumberSubmittedToBlacklist)
+> addToBlacklist(numberToBlacklist)
 
 
 
@@ -34,9 +34,9 @@ basicAuth.setUsername("YOUR USERNAME");
 basicAuth.setPassword("YOUR PASSWORD");
 
 BlacklistApi apiInstance = new BlacklistApi();
-PhoneNumberSubmittedToBlacklist phoneNumberSubmittedToBlacklist = new PhoneNumberSubmittedToBlacklist(); // PhoneNumberSubmittedToBlacklist | 
+NumberToBlacklist numberToBlacklist = new NumberToBlacklist(); // NumberToBlacklist | Phone number to be blacklisted
 try {
-    apiInstance.addToBlacklist(phoneNumberSubmittedToBlacklist);
+    apiInstance.addToBlacklist(numberToBlacklist);
 } catch (ApiException e) {
     System.err.println("Exception when calling BlacklistApi#addToBlacklist");
     e.printStackTrace();
@@ -47,7 +47,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **phoneNumberSubmittedToBlacklist** | [**PhoneNumberSubmittedToBlacklist**](PhoneNumberSubmittedToBlacklist.md)|  | [optional]
+ **numberToBlacklist** | [**NumberToBlacklist**](NumberToBlacklist.md)| Phone number to be blacklisted |
 
 ### Return type
 

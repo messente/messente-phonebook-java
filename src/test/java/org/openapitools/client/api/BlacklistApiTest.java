@@ -16,7 +16,7 @@ package org.openapitools.client.api;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.model.ErrorResponse;
 import org.openapitools.client.model.FetchBlacklistSuccess;
-import org.openapitools.client.model.PhoneNumberSubmittedToBlacklist;
+import org.openapitools.client.model.NumberToBlacklist;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -44,8 +44,8 @@ public class BlacklistApiTest {
      */
     @Test
     public void addToBlacklistTest() throws ApiException {
-        PhoneNumberSubmittedToBlacklist phoneNumberSubmittedToBlacklist = null;
-        api.addToBlacklist(phoneNumberSubmittedToBlacklist);
+        NumberToBlacklist numberToBlacklist = null;
+        api.addToBlacklist(numberToBlacklist);
 
         // TODO: test validations
     }

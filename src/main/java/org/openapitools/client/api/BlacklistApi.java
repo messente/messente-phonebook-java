@@ -29,7 +29,7 @@ import java.io.IOException;
 
 import org.openapitools.client.model.ErrorResponse;
 import org.openapitools.client.model.FetchBlacklistSuccess;
-import org.openapitools.client.model.PhoneNumberSubmittedToBlacklist;
+import org.openapitools.client.model.NumberToBlacklist;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -58,14 +58,14 @@ public class BlacklistApi {
 
     /**
      * Build call for addToBlacklist
-     * @param phoneNumberSubmittedToBlacklist  (optional)
+     * @param numberToBlacklist Phone number to be blacklisted (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call addToBlacklistCall(PhoneNumberSubmittedToBlacklist phoneNumberSubmittedToBlacklist, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = phoneNumberSubmittedToBlacklist;
+    public com.squareup.okhttp.Call addToBlacklistCall(NumberToBlacklist numberToBlacklist, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = numberToBlacklist;
 
         // create path and map variables
         String localVarPath = "/phonebook/blacklist";
@@ -105,10 +105,15 @@ public class BlacklistApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call addToBlacklistValidateBeforeCall(PhoneNumberSubmittedToBlacklist phoneNumberSubmittedToBlacklist, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call addToBlacklistValidateBeforeCall(NumberToBlacklist numberToBlacklist, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'numberToBlacklist' is set
+        if (numberToBlacklist == null) {
+            throw new ApiException("Missing the required parameter 'numberToBlacklist' when calling addToBlacklist(Async)");
+        }
         
 
-        com.squareup.okhttp.Call call = addToBlacklistCall(phoneNumberSubmittedToBlacklist, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = addToBlacklistCall(numberToBlacklist, progressListener, progressRequestListener);
         return call;
 
     }
@@ -116,34 +121,34 @@ public class BlacklistApi {
     /**
      * 
      * Adds a phone number to the blacklist.
-     * @param phoneNumberSubmittedToBlacklist  (optional)
+     * @param numberToBlacklist Phone number to be blacklisted (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void addToBlacklist(PhoneNumberSubmittedToBlacklist phoneNumberSubmittedToBlacklist) throws ApiException {
-        addToBlacklistWithHttpInfo(phoneNumberSubmittedToBlacklist);
+    public void addToBlacklist(NumberToBlacklist numberToBlacklist) throws ApiException {
+        addToBlacklistWithHttpInfo(numberToBlacklist);
     }
 
     /**
      * 
      * Adds a phone number to the blacklist.
-     * @param phoneNumberSubmittedToBlacklist  (optional)
+     * @param numberToBlacklist Phone number to be blacklisted (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> addToBlacklistWithHttpInfo(PhoneNumberSubmittedToBlacklist phoneNumberSubmittedToBlacklist) throws ApiException {
-        com.squareup.okhttp.Call call = addToBlacklistValidateBeforeCall(phoneNumberSubmittedToBlacklist, null, null);
+    public ApiResponse<Void> addToBlacklistWithHttpInfo(NumberToBlacklist numberToBlacklist) throws ApiException {
+        com.squareup.okhttp.Call call = addToBlacklistValidateBeforeCall(numberToBlacklist, null, null);
         return apiClient.execute(call);
     }
 
     /**
      *  (asynchronously)
      * Adds a phone number to the blacklist.
-     * @param phoneNumberSubmittedToBlacklist  (optional)
+     * @param numberToBlacklist Phone number to be blacklisted (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call addToBlacklistAsync(PhoneNumberSubmittedToBlacklist phoneNumberSubmittedToBlacklist, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call addToBlacklistAsync(NumberToBlacklist numberToBlacklist, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -164,7 +169,7 @@ public class BlacklistApi {
             };
         }
 
-        com.squareup.okhttp.Call call = addToBlacklistValidateBeforeCall(phoneNumberSubmittedToBlacklist, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = addToBlacklistValidateBeforeCall(numberToBlacklist, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

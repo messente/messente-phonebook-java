@@ -25,25 +25,24 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Phone number in e.164 format
+ * NumberToBlacklist
  */
-@ApiModel(description = "Phone number in e.164 format")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2018-11-09T11:00:29.119348+02:00[Europe/Tallinn]")
-public class PhoneNumberSubmittedToBlacklist {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2018-11-09T16:41:11.807363+02:00[Europe/Tallinn]")
+public class NumberToBlacklist {
   public static final String SERIALIZED_NAME_PHONE_NUMBER = "phoneNumber";
   @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
   private String phoneNumber;
 
-  public PhoneNumberSubmittedToBlacklist phoneNumber(String phoneNumber) {
+  public NumberToBlacklist phoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
     return this;
   }
 
    /**
-   * Get phoneNumber
+   * Phone number in e.164 format
    * @return phoneNumber
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Phone number in e.164 format")
   public String getPhoneNumber() {
     return phoneNumber;
   }
@@ -61,8 +60,8 @@ public class PhoneNumberSubmittedToBlacklist {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PhoneNumberSubmittedToBlacklist phoneNumberSubmittedToBlacklist = (PhoneNumberSubmittedToBlacklist) o;
-    return Objects.equals(this.phoneNumber, phoneNumberSubmittedToBlacklist.phoneNumber);
+    NumberToBlacklist numberToBlacklist = (NumberToBlacklist) o;
+    return Objects.equals(this.phoneNumber, numberToBlacklist.phoneNumber);
   }
 
   @Override
@@ -74,7 +73,7 @@ public class PhoneNumberSubmittedToBlacklist {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PhoneNumberSubmittedToBlacklist {\n");
+    sb.append("class NumberToBlacklist {\n");
     
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("}");

@@ -2,7 +2,7 @@
 
 Phonebook API
 - API version: 0.0.1
-  - Build date: 2018-11-09T11:00:29.119348+02:00[Europe/Tallinn]
+  - Build date: 2018-11-09T16:41:11.807363+02:00[Europe/Tallinn]
 
 RESTful API for Messente phonebook
 
@@ -91,9 +91,9 @@ public class BlacklistApiExample {
         basicAuth.setPassword("YOUR PASSWORD");
 
         BlacklistApi apiInstance = new BlacklistApi();
-        PhoneNumberSubmittedToBlacklist phoneNumberSubmittedToBlacklist = new PhoneNumberSubmittedToBlacklist(); // PhoneNumberSubmittedToBlacklist | 
+        NumberToBlacklist numberToBlacklist = new NumberToBlacklist(); // NumberToBlacklist | Phone number to be blacklisted
         try {
-            apiInstance.addToBlacklist(phoneNumberSubmittedToBlacklist);
+            apiInstance.addToBlacklist(numberToBlacklist);
         } catch (ApiException e) {
             System.err.println("Exception when calling BlacklistApi#addToBlacklist");
             e.printStackTrace();
@@ -119,7 +119,7 @@ Class | Method | HTTP request | Description
  - [ErrorItem](docs/ErrorItem.md)
  - [ErrorResponse](docs/ErrorResponse.md)
  - [FetchBlacklistSuccess](docs/FetchBlacklistSuccess.md)
- - [PhoneNumberSubmittedToBlacklist](docs/PhoneNumberSubmittedToBlacklist.md)
+ - [NumberToBlacklist](docs/NumberToBlacklist.md)
  - [ResponseErrorCode](docs/ResponseErrorCode.md)
  - [ResponseErrorTitle](docs/ResponseErrorTitle.md)
 

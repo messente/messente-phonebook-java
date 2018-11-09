@@ -30,7 +30,7 @@ import org.openapitools.client.model.ErrorItem;
 /**
  * ErrorResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2018-11-09T11:00:29.119348+02:00[Europe/Tallinn]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2018-11-09T16:41:11.807363+02:00[Europe/Tallinn]")
 public class ErrorResponse {
   public static final String SERIALIZED_NAME_ERRORS = "errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
