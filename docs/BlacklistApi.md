@@ -20,11 +20,11 @@ Adds a phone number to the blacklist.
 ### Example
 ```java
 // Import classes:
-//import org.openapitools.client.ApiClient;
-//import org.openapitools.client.ApiException;
-//import org.openapitools.client.Configuration;
-//import org.openapitools.client.auth.*;
-//import org.openapitools.client.api.BlacklistApi;
+//import com.messente.ApiClient;
+//import com.messente.ApiException;
+//import com.messente.Configuration;
+//import com.messente.auth.*;
+//import com.messente.phonebook.BlacklistApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -73,11 +73,11 @@ Returns all blacklisted phone numbers.
 ### Example
 ```java
 // Import classes:
-//import org.openapitools.client.ApiClient;
-//import org.openapitools.client.ApiException;
-//import org.openapitools.client.Configuration;
-//import org.openapitools.client.auth.*;
-//import org.openapitools.client.api.BlacklistApi;
+//import com.messente.ApiClient;
+//import com.messente.ApiException;
+//import com.messente.Configuration;
+//import com.messente.auth.*;
+//import com.messente.phonebook.BlacklistApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -123,11 +123,11 @@ Removes a phone number from the blacklist.
 ### Example
 ```java
 // Import classes:
-//import org.openapitools.client.ApiClient;
-//import org.openapitools.client.ApiException;
-//import org.openapitools.client.Configuration;
-//import org.openapitools.client.auth.*;
-//import org.openapitools.client.api.BlacklistApi;
+//import com.messente.ApiClient;
+//import com.messente.ApiException;
+//import com.messente.Configuration;
+//import com.messente.auth.*;
+//import com.messente.phonebook.BlacklistApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 

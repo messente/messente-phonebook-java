@@ -1,8 +1,7 @@
-# openapi-java-client
+# phonebook-java
 
 Phonebook API
 - API version: 0.0.1
-  - Build date: 2018-11-09T16:41:11.807363+02:00[Europe/Tallinn]
 
 RESTful API for Messente phonebook
 
@@ -38,9 +37,9 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>org.openapitools</groupId>
-  <artifactId>openapi-java-client</artifactId>
-  <version>1.0.0</version>
+  <groupId>com.messente.phonebook</groupId>
+  <artifactId>phonebook-java</artifactId>
+  <version>0.0.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +49,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "org.openapitools:openapi-java-client:1.0.0"
+compile "com.messente.phonebook:phonebook-java:0.0.1"
 ```
 
 ### Others
@@ -63,7 +62,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-1.0.0.jar`
+* `target/phonebook-java-0.0.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -72,10 +71,10 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ```java
 
-import org.openapitools.client.*;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.model.*;
-import org.openapitools.client.api.BlacklistApi;
+import com.messente.*;
+import com.messente.auth.*;
+import com.messente.phonebook.*;
+import com.messente.phonebook.BlacklistApi;
 
 import java.io.File;
 import java.util.*;
