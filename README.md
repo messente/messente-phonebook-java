@@ -78,28 +78,26 @@ public class BlacklistApiExample {
         basicAuth.setPassword("YOUR_MESSENTE_API_PASSWORD");
 
         BlacklistApi apiInstance = new BlacklistApi();
-        NumberToBlacklist numberToBlacklist = new NumberToBlacklist();
-        numberToBlacklist.setPhoneNumber("+37255555555");
 
         try {
             FetchBlacklistSuccess response = apiInstance.fetchBlacklist();
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling BlacklistApi#addToBlacklist");
+            System.err.println("Exception when calling addToBlacklist");
             e.printStackTrace();
         }
 
 //      try {
-//          apiInstance.addToBlacklist(numberToBlacklist);
+//          apiInstance.addToBlacklist(new NumberToBlacklist().phoneNumber("+37255555555"));
 //      } catch (ApiException e) {
-//          System.err.println("Exception when calling BlacklistApi#addToBlacklist");
+//          System.err.println("Exception when calling addToBlacklist");
 //          e.printStackTrace();
 //      }
 //
 //      try {
 //          apiInstance.removeFromBlacklist("+37255555555");
 //      } catch (ApiException e) {
-//          System.err.println("Exception when calling BlacklistApi#removeFromBlacklist");
+//          System.err.println("Exception when calling removeFromBlacklist");
 //          e.printStackTrace();
 //      }
     }
