@@ -12,6 +12,8 @@
 
 * `CONFLICT` (value: `"Conflict"`)
 
+* `CLIENT_ERROR` (value: `"Client error"`)
+
 * `GENERAL_ERROR` (value: `"General error"`)
 
 
