@@ -83,7 +83,7 @@ public class BlacklistApiExample {
             FetchBlacklistSuccess response = apiInstance.fetchBlacklist();
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling addToBlacklist");
+            System.err.println("Exception when calling fetchBlacklist");
             e.printStackTrace();
         }
 

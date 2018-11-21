@@ -25,7 +25,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Matches the following ResponseErrorTitles. This field is a constant. * 201 - Invalid data * 202 - Unauthorized * 203 - Missing resource * 204 - Conflict * 205 - General error
+ * Matches the following ResponseErrorTitles. This field is a constant. * 201 - Invalid data * 202 - Unauthorized * 203 - Missing resource * 204 - Conflict * 244 - Client error * 205 - General error
  */
 @JsonAdapter(ResponseErrorCode.Adapter.class)
 public enum ResponseErrorCode {
@@ -37,6 +37,8 @@ public enum ResponseErrorCode {
   _203("203"),
   
   _204("204"),
+  
+  _244("244"),
   
   _205("205");
 

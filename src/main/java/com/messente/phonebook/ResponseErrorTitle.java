@@ -38,6 +38,8 @@ public enum ResponseErrorTitle {
   
   CONFLICT("Conflict"),
   
+  CLIENT_ERROR("Client error"),
+  
   GENERAL_ERROR("General error");
 
   private String value;

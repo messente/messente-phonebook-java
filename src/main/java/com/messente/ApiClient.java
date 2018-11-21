@@ -79,7 +79,7 @@ public class ApiClient {
     private HttpLoggingInterceptor loggingInterceptor;
 
     /*
-     * Constructor for ApiClient
+     * Basic constructor for ApiClient
      */
     public ApiClient() {
         init();
