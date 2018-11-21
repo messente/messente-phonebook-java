@@ -1,0 +1,19 @@
+{
+  "hideGenerationTimestamp": "true",
+  "apiPackage": "com.messente.phonebook",
+  "artifactDescription": "Java client for Messente Phonebook API",
+  "artifactId": "phonebook-java",
+  "artifactUrl": "https://github.com/messente/messente-phonebook-java",
+  "artifactVersion": "0.0.1",
+  "developerEmail": "admin@messente.com",
+  "developerName": "Messente",
+  "developerOrganization": "Messente Communications",
+  "developerOrganizationUrl": "https://messente.com",
+  "groupId": "com.messente.phonebook",
+  "licenseName": "Apache 2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "modelPackage": "com.messente.phonebook",
+  "scmConnection": "scm:git:git@github.com:messente/messente-phonebook-java",
+  "scmDeveloperConnection": "scm:git:git@github.com:messente/messente-phonebook-java",
+  "scmUrl": "scm:git:git@github.com:messente/phonebook-api-java"
+}
