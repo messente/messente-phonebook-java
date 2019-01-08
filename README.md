@@ -32,7 +32,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.messente.phonebook</groupId>
   <artifactId>phonebook-java</artifactId>
-  <version>0.0.1</version>
+  <version>0.2.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.messente.phonebook:phonebook-java:0.0.1"
+compile "com.messente.phonebook:phonebook-java:0.2.0"
 ```
 
 ### Others
@@ -55,7 +55,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/phonebook-java-0.0.1.jar`
+* `target/phonebook-java-0.2.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -140,4 +140,3 @@ It's recommended to create an instance of `ApiClient` per thread in a multithrea
 ## Author
 
 messente@messente.com
-
