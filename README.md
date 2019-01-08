@@ -94,6 +94,13 @@ public class BlacklistApiExample {
 //          e.printStackTrace();
 //      }
 //
+//  try {
+//      apiInstance.isBlacklisted("+37255555555");
+//  } catch (ApiException e) {
+//      System.err.println("Exception when calling isBlacklisted");
+//      e.printStackTrace();
+//  }
+//
 //      try {
 //          apiInstance.removeFromBlacklist("+37255555555");
 //      } catch (ApiException e) {
@@ -112,6 +119,7 @@ Class | Method | HTTP request |
 ------------ | ------------- | ------------- |
 *BlacklistApi* | [**addToBlacklist**](docs/BlacklistApi.md#addToBlacklist) | **POST** /phonebook/blacklist |
 *BlacklistApi* | [**fetchBlacklist**](docs/BlacklistApi.md#fetchBlacklist) | **GET** /phonebook/blacklist |
+*BlacklistApi* | [**isBlacklisted**](docs/BlacklistApi.md#isBlacklisted) | **GET** /phonebook/blacklist/{phone_number} |
 *BlacklistApi* | [**removeFromBlacklist**](docs/BlacklistApi.md#removeFromBlacklist) | **DELETE** /phonebook/blacklist/{phone_number} |
 
 
