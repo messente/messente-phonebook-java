@@ -28,8 +28,9 @@ import java.io.IOException;
 
 
 import com.messente.phonebook.ErrorResponse;
-import com.messente.phonebook.FetchBlacklistSuccess;
-import com.messente.phonebook.NumberToBlacklist;
+import com.messente.phonebook.GroupEnvelope;
+import com.messente.phonebook.GroupListEnvelope;
+import com.messente.phonebook.GroupName;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -37,14 +38,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BlacklistApi {
+public class GroupsApi {
     private ApiClient apiClient;
 
-    public BlacklistApi() {
+    public GroupsApi() {
         this(Configuration.getDefaultApiClient());
     }
 
-    public BlacklistApi(ApiClient apiClient) {
+    public GroupsApi(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
 
@@ -57,18 +58,18 @@ public class BlacklistApi {
     }
 
     /**
-     * Build call for addToBlacklist
-     * @param numberToBlacklist Phone number to be blacklisted (required)
+     * Build call for createGroup
+     * @param groupName  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call addToBlacklistCall(NumberToBlacklist numberToBlacklist, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = numberToBlacklist;
+    public com.squareup.okhttp.Call createGroupCall(GroupName groupName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = groupName;
 
         // create path and map variables
-        String localVarPath = "/blacklist";
+        String localVarPath = "/groups";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -105,161 +106,53 @@ public class BlacklistApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call addToBlacklistValidateBeforeCall(NumberToBlacklist numberToBlacklist, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createGroupValidateBeforeCall(GroupName groupName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'numberToBlacklist' is set
-        if (numberToBlacklist == null) {
-            throw new ApiException("Missing the required parameter 'numberToBlacklist' when calling addToBlacklist(Async)");
+        // verify the required parameter 'groupName' is set
+        if (groupName == null) {
+            throw new ApiException("Missing the required parameter 'groupName' when calling createGroup(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = addToBlacklistCall(numberToBlacklist, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = createGroupCall(groupName, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
      * 
-     * Adds a phone number to the blacklist.
-     * @param numberToBlacklist Phone number to be blacklisted (required)
+     * Creates a new group with the provided name.
+     * @param groupName  (required)
+     * @return GroupEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void addToBlacklist(NumberToBlacklist numberToBlacklist) throws ApiException {
-        addToBlacklistWithHttpInfo(numberToBlacklist);
-    }
-
-    /**
-     * 
-     * Adds a phone number to the blacklist.
-     * @param numberToBlacklist Phone number to be blacklisted (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Void> addToBlacklistWithHttpInfo(NumberToBlacklist numberToBlacklist) throws ApiException {
-        com.squareup.okhttp.Call call = addToBlacklistValidateBeforeCall(numberToBlacklist, null, null);
-        return apiClient.execute(call);
-    }
-
-    /**
-     *  (asynchronously)
-     * Adds a phone number to the blacklist.
-     * @param numberToBlacklist Phone number to be blacklisted (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call addToBlacklistAsync(NumberToBlacklist numberToBlacklist, final ApiCallback<Void> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = addToBlacklistValidateBeforeCall(numberToBlacklist, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
-        return call;
-    }
-    /**
-     * Build call for fetchBlacklist
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call fetchBlacklistCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
-
-        // create path and map variables
-        String localVarPath = "/blacklist";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "basicAuth" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call fetchBlacklistValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-
-        com.squareup.okhttp.Call call = fetchBlacklistCall(progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * 
-     * Returns all blacklisted phone numbers.
-     * @return FetchBlacklistSuccess
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public FetchBlacklistSuccess fetchBlacklist() throws ApiException {
-        ApiResponse<FetchBlacklistSuccess> resp = fetchBlacklistWithHttpInfo();
+    public GroupEnvelope createGroup(GroupName groupName) throws ApiException {
+        ApiResponse<GroupEnvelope> resp = createGroupWithHttpInfo(groupName);
         return resp.getData();
     }
 
     /**
      * 
-     * Returns all blacklisted phone numbers.
-     * @return ApiResponse&lt;FetchBlacklistSuccess&gt;
+     * Creates a new group with the provided name.
+     * @param groupName  (required)
+     * @return ApiResponse&lt;GroupEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<FetchBlacklistSuccess> fetchBlacklistWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = fetchBlacklistValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<FetchBlacklistSuccess>(){}.getType();
+    public ApiResponse<GroupEnvelope> createGroupWithHttpInfo(GroupName groupName) throws ApiException {
+        com.squareup.okhttp.Call call = createGroupValidateBeforeCall(groupName, null, null);
+        Type localVarReturnType = new TypeToken<GroupEnvelope>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Returns all blacklisted phone numbers.
+     * Creates a new group with the provided name.
+     * @param groupName  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call fetchBlacklistAsync(final ApiCallback<FetchBlacklistSuccess> callback) throws ApiException {
+    public com.squareup.okhttp.Call createGroupAsync(GroupName groupName, final ApiCallback<GroupEnvelope> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -280,143 +173,25 @@ public class BlacklistApi {
             };
         }
 
-        com.squareup.okhttp.Call call = fetchBlacklistValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FetchBlacklistSuccess>(){}.getType();
+        com.squareup.okhttp.Call call = createGroupValidateBeforeCall(groupName, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GroupEnvelope>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for isBlacklisted
-     * @param phone A phone number (required)
+     * Build call for deleteGroup
+     * @param groupId String in uuid format. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call isBlacklistedCall(String phone, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteGroupCall(String groupId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
-        String localVarPath = "/blacklist/{phone}"
-            .replaceAll("\\{" + "phone" + "\\}", apiClient.escapeString(phone.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "basicAuth" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call isBlacklistedValidateBeforeCall(String phone, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'phone' is set
-        if (phone == null) {
-            throw new ApiException("Missing the required parameter 'phone' when calling isBlacklisted(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = isBlacklistedCall(phone, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * 
-     * Checks if a phone number is blacklisted.
-     * @param phone A phone number (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public void isBlacklisted(String phone) throws ApiException {
-        isBlacklistedWithHttpInfo(phone);
-    }
-
-    /**
-     * 
-     * Checks if a phone number is blacklisted.
-     * @param phone A phone number (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Void> isBlacklistedWithHttpInfo(String phone) throws ApiException {
-        com.squareup.okhttp.Call call = isBlacklistedValidateBeforeCall(phone, null, null);
-        return apiClient.execute(call);
-    }
-
-    /**
-     *  (asynchronously)
-     * Checks if a phone number is blacklisted.
-     * @param phone A phone number (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call isBlacklistedAsync(String phone, final ApiCallback<Void> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = isBlacklistedValidateBeforeCall(phone, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
-        return call;
-    }
-    /**
-     * Build call for removeFromBlacklist
-     * @param phone A phone number (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call removeFromBlacklistCall(String phone, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
-
-        // create path and map variables
-        String localVarPath = "/blacklist/{phone}"
-            .replaceAll("\\{" + "phone" + "\\}", apiClient.escapeString(phone.toString()));
+        String localVarPath = "/groups/{groupId}"
+            .replaceAll("\\{" + "groupId" + "\\}", apiClient.escapeString(groupId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -453,50 +228,50 @@ public class BlacklistApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call removeFromBlacklistValidateBeforeCall(String phone, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteGroupValidateBeforeCall(String groupId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'phone' is set
-        if (phone == null) {
-            throw new ApiException("Missing the required parameter 'phone' when calling removeFromBlacklist(Async)");
+        // verify the required parameter 'groupId' is set
+        if (groupId == null) {
+            throw new ApiException("Missing the required parameter 'groupId' when calling deleteGroup(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = removeFromBlacklistCall(phone, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteGroupCall(groupId, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
      * 
-     * Removes a phone number from the blacklist.
-     * @param phone A phone number (required)
+     * Deletes a group.
+     * @param groupId String in uuid format. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void removeFromBlacklist(String phone) throws ApiException {
-        removeFromBlacklistWithHttpInfo(phone);
+    public void deleteGroup(String groupId) throws ApiException {
+        deleteGroupWithHttpInfo(groupId);
     }
 
     /**
      * 
-     * Removes a phone number from the blacklist.
-     * @param phone A phone number (required)
+     * Deletes a group.
+     * @param groupId String in uuid format. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> removeFromBlacklistWithHttpInfo(String phone) throws ApiException {
-        com.squareup.okhttp.Call call = removeFromBlacklistValidateBeforeCall(phone, null, null);
+    public ApiResponse<Void> deleteGroupWithHttpInfo(String groupId) throws ApiException {
+        com.squareup.okhttp.Call call = deleteGroupValidateBeforeCall(groupId, null, null);
         return apiClient.execute(call);
     }
 
     /**
      *  (asynchronously)
-     * Removes a phone number from the blacklist.
-     * @param phone A phone number (required)
+     * Deletes a group.
+     * @param groupId String in uuid format. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call removeFromBlacklistAsync(String phone, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteGroupAsync(String groupId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -517,8 +292,373 @@ public class BlacklistApi {
             };
         }
 
-        com.squareup.okhttp.Call call = removeFromBlacklistValidateBeforeCall(phone, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteGroupValidateBeforeCall(groupId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for fetchGroup
+     * @param groupId String in uuid format. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call fetchGroupCall(String groupId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = new Object();
+
+        // create path and map variables
+        String localVarPath = "/groups/{groupId}"
+            .replaceAll("\\{" + "groupId" + "\\}", apiClient.escapeString(groupId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call fetchGroupValidateBeforeCall(String groupId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'groupId' is set
+        if (groupId == null) {
+            throw new ApiException("Missing the required parameter 'groupId' when calling fetchGroup(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = fetchGroupCall(groupId, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * 
+     * Lists a group.
+     * @param groupId String in uuid format. (required)
+     * @return GroupEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GroupEnvelope fetchGroup(String groupId) throws ApiException {
+        ApiResponse<GroupEnvelope> resp = fetchGroupWithHttpInfo(groupId);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * Lists a group.
+     * @param groupId String in uuid format. (required)
+     * @return ApiResponse&lt;GroupEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GroupEnvelope> fetchGroupWithHttpInfo(String groupId) throws ApiException {
+        com.squareup.okhttp.Call call = fetchGroupValidateBeforeCall(groupId, null, null);
+        Type localVarReturnType = new TypeToken<GroupEnvelope>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Lists a group.
+     * @param groupId String in uuid format. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call fetchGroupAsync(String groupId, final ApiCallback<GroupEnvelope> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = fetchGroupValidateBeforeCall(groupId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GroupEnvelope>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for fetchGroups
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call fetchGroupsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = new Object();
+
+        // create path and map variables
+        String localVarPath = "/groups";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call fetchGroupsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = fetchGroupsCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * 
+     * Returns all groups.
+     * @return GroupListEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GroupListEnvelope fetchGroups() throws ApiException {
+        ApiResponse<GroupListEnvelope> resp = fetchGroupsWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * Returns all groups.
+     * @return ApiResponse&lt;GroupListEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GroupListEnvelope> fetchGroupsWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = fetchGroupsValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<GroupListEnvelope>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Returns all groups.
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call fetchGroupsAsync(final ApiCallback<GroupListEnvelope> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = fetchGroupsValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GroupListEnvelope>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateGroup
+     * @param groupId String in uuid format. (required)
+     * @param groupName  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateGroupCall(String groupId, GroupName groupName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = groupName;
+
+        // create path and map variables
+        String localVarPath = "/groups/{groupId}"
+            .replaceAll("\\{" + "groupId" + "\\}", apiClient.escapeString(groupId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateGroupValidateBeforeCall(String groupId, GroupName groupName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'groupId' is set
+        if (groupId == null) {
+            throw new ApiException("Missing the required parameter 'groupId' when calling updateGroup(Async)");
+        }
+        
+        // verify the required parameter 'groupName' is set
+        if (groupName == null) {
+            throw new ApiException("Missing the required parameter 'groupName' when calling updateGroup(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateGroupCall(groupId, groupName, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * 
+     * Updates a group with the provided name.
+     * @param groupId String in uuid format. (required)
+     * @param groupName  (required)
+     * @return GroupEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GroupEnvelope updateGroup(String groupId, GroupName groupName) throws ApiException {
+        ApiResponse<GroupEnvelope> resp = updateGroupWithHttpInfo(groupId, groupName);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * Updates a group with the provided name.
+     * @param groupId String in uuid format. (required)
+     * @param groupName  (required)
+     * @return ApiResponse&lt;GroupEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GroupEnvelope> updateGroupWithHttpInfo(String groupId, GroupName groupName) throws ApiException {
+        com.squareup.okhttp.Call call = updateGroupValidateBeforeCall(groupId, groupName, null, null);
+        Type localVarReturnType = new TypeToken<GroupEnvelope>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Updates a group with the provided name.
+     * @param groupId String in uuid format. (required)
+     * @param groupName  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateGroupAsync(String groupId, GroupName groupName, final ApiCallback<GroupEnvelope> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateGroupValidateBeforeCall(groupId, groupName, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GroupEnvelope>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
 }

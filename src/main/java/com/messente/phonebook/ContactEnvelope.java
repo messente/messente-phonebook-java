@@ -20,45 +20,36 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.messente.phonebook.ContactFields;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * FetchBlacklistSuccess
+ * ContactEnvelope
  */
 
-public class FetchBlacklistSuccess {
-  public static final String SERIALIZED_NAME_PHONE_NUMBERS = "phoneNumbers";
-  @SerializedName(SERIALIZED_NAME_PHONE_NUMBERS)
-  private List<String> phoneNumbers = null;
+public class ContactEnvelope {
+  public static final String SERIALIZED_NAME_CONTACT = "contact";
+  @SerializedName(SERIALIZED_NAME_CONTACT)
+  private ContactFields contact = null;
 
-  public FetchBlacklistSuccess phoneNumbers(List<String> phoneNumbers) {
-    this.phoneNumbers = phoneNumbers;
-    return this;
-  }
-
-  public FetchBlacklistSuccess addPhoneNumbersItem(String phoneNumbersItem) {
-    if (this.phoneNumbers == null) {
-      this.phoneNumbers = new ArrayList<String>();
-    }
-    this.phoneNumbers.add(phoneNumbersItem);
+  public ContactEnvelope contact(ContactFields contact) {
+    this.contact = contact;
     return this;
   }
 
    /**
-   * Get phoneNumbers
-   * @return phoneNumbers
+   * Get contact
+   * @return contact
   **/
   @ApiModelProperty(value = "")
-  public List<String> getPhoneNumbers() {
-    return phoneNumbers;
+  public ContactFields getContact() {
+    return contact;
   }
 
-  public void setPhoneNumbers(List<String> phoneNumbers) {
-    this.phoneNumbers = phoneNumbers;
+  public void setContact(ContactFields contact) {
+    this.contact = contact;
   }
 
 
@@ -70,22 +61,22 @@ public class FetchBlacklistSuccess {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FetchBlacklistSuccess fetchBlacklistSuccess = (FetchBlacklistSuccess) o;
-    return Objects.equals(this.phoneNumbers, fetchBlacklistSuccess.phoneNumbers);
+    ContactEnvelope contactEnvelope = (ContactEnvelope) o;
+    return Objects.equals(this.contact, contactEnvelope.contact);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(phoneNumbers);
+    return Objects.hash(contact);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FetchBlacklistSuccess {\n");
+    sb.append("class ContactEnvelope {\n");
     
-    sb.append("    phoneNumbers: ").append(toIndentedString(phoneNumbers)).append("\n");
+    sb.append("    contact: ").append(toIndentedString(contact)).append("\n");
     sb.append("}");
     return sb.toString();
   }

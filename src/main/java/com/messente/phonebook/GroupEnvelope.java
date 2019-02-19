@@ -20,45 +20,36 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.messente.phonebook.GroupResponseFields;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * FetchBlacklistSuccess
+ * GroupEnvelope
  */
 
-public class FetchBlacklistSuccess {
-  public static final String SERIALIZED_NAME_PHONE_NUMBERS = "phoneNumbers";
-  @SerializedName(SERIALIZED_NAME_PHONE_NUMBERS)
-  private List<String> phoneNumbers = null;
+public class GroupEnvelope {
+  public static final String SERIALIZED_NAME_GROUP = "group";
+  @SerializedName(SERIALIZED_NAME_GROUP)
+  private GroupResponseFields group = null;
 
-  public FetchBlacklistSuccess phoneNumbers(List<String> phoneNumbers) {
-    this.phoneNumbers = phoneNumbers;
-    return this;
-  }
-
-  public FetchBlacklistSuccess addPhoneNumbersItem(String phoneNumbersItem) {
-    if (this.phoneNumbers == null) {
-      this.phoneNumbers = new ArrayList<String>();
-    }
-    this.phoneNumbers.add(phoneNumbersItem);
+  public GroupEnvelope group(GroupResponseFields group) {
+    this.group = group;
     return this;
   }
 
    /**
-   * Get phoneNumbers
-   * @return phoneNumbers
+   * Get group
+   * @return group
   **/
   @ApiModelProperty(value = "")
-  public List<String> getPhoneNumbers() {
-    return phoneNumbers;
+  public GroupResponseFields getGroup() {
+    return group;
   }
 
-  public void setPhoneNumbers(List<String> phoneNumbers) {
-    this.phoneNumbers = phoneNumbers;
+  public void setGroup(GroupResponseFields group) {
+    this.group = group;
   }
 
 
@@ -70,22 +61,22 @@ public class FetchBlacklistSuccess {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FetchBlacklistSuccess fetchBlacklistSuccess = (FetchBlacklistSuccess) o;
-    return Objects.equals(this.phoneNumbers, fetchBlacklistSuccess.phoneNumbers);
+    GroupEnvelope groupEnvelope = (GroupEnvelope) o;
+    return Objects.equals(this.group, groupEnvelope.group);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(phoneNumbers);
+    return Objects.hash(group);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FetchBlacklistSuccess {\n");
+    sb.append("class GroupEnvelope {\n");
     
-    sb.append("    phoneNumbers: ").append(toIndentedString(phoneNumbers)).append("\n");
+    sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("}");
     return sb.toString();
   }

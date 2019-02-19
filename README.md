@@ -32,7 +32,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.messente.phonebook</groupId>
   <artifactId>phonebook-java</artifactId>
-  <version>0.2.0</version>
+  <version>0.3.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.messente.phonebook:phonebook-java:0.2.0"
+compile "com.messente.phonebook:phonebook-java:0.3.0"
 ```
 
 ### Others
@@ -55,7 +55,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/phonebook-java-0.2.0.jar`
+* `target/phonebook-java-0.3.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -113,21 +113,43 @@ public class BlacklistApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *<https://api.messente.com/v1>*
+All URIs are relative to *https://api.messente.com/v1/phonebook*
 
-Class | Method | HTTP request |
------------- | ------------- | ------------- |
-*BlacklistApi* | [**addToBlacklist**](docs/BlacklistApi.md#addToBlacklist) | **POST** /phonebook/blacklist |
-*BlacklistApi* | [**fetchBlacklist**](docs/BlacklistApi.md#fetchBlacklist) | **GET** /phonebook/blacklist |
-*BlacklistApi* | [**isBlacklisted**](docs/BlacklistApi.md#isBlacklisted) | **GET** /phonebook/blacklist/{phone_number} |
-*BlacklistApi* | [**removeFromBlacklist**](docs/BlacklistApi.md#removeFromBlacklist) | **DELETE** /phonebook/blacklist/{phone_number} |
+Class | Method | HTTP request | Description
+------------ | ------------- | ------------- | -------------
+*BlacklistApi* | [**addToBlacklist**](docs/BlacklistApi.md#addToBlacklist) | **POST** /blacklist | 
+*BlacklistApi* | [**fetchBlacklist**](docs/BlacklistApi.md#fetchBlacklist) | **GET** /blacklist | 
+*BlacklistApi* | [**isBlacklisted**](docs/BlacklistApi.md#isBlacklisted) | **GET** /blacklist/{phone} | 
+*BlacklistApi* | [**removeFromBlacklist**](docs/BlacklistApi.md#removeFromBlacklist) | **DELETE** /blacklist/{phone} | 
+*ContactsApi* | [**addContactToGroup**](docs/ContactsApi.md#addContactToGroup) | **POST** /groups/{groupId}/contacts/{phone} | 
+*ContactsApi* | [**createContact**](docs/ContactsApi.md#createContact) | **POST** /contacts | 
+*ContactsApi* | [**deleteContact**](docs/ContactsApi.md#deleteContact) | **DELETE** /contacts/{phone} | 
+*ContactsApi* | [**fetchContact**](docs/ContactsApi.md#fetchContact) | **GET** /contacts/{phone} | 
+*ContactsApi* | [**fetchContactGroups**](docs/ContactsApi.md#fetchContactGroups) | **GET** /contacts/{phone}/groups | 
+*ContactsApi* | [**fetchContacts**](docs/ContactsApi.md#fetchContacts) | **GET** /contacts | 
+*ContactsApi* | [**removeContactFromGroup**](docs/ContactsApi.md#removeContactFromGroup) | **DELETE** /groups/{groupId}/contacts/{phone} | 
+*ContactsApi* | [**updateContact**](docs/ContactsApi.md#updateContact) | **PATCH** /contacts/{phone} | 
+*GroupsApi* | [**createGroup**](docs/GroupsApi.md#createGroup) | **POST** /groups | 
+*GroupsApi* | [**deleteGroup**](docs/GroupsApi.md#deleteGroup) | **DELETE** /groups/{groupId} | 
+*GroupsApi* | [**fetchGroup**](docs/GroupsApi.md#fetchGroup) | **GET** /groups/{groupId} | 
+*GroupsApi* | [**fetchGroups**](docs/GroupsApi.md#fetchGroups) | **GET** /groups | 
+*GroupsApi* | [**updateGroup**](docs/GroupsApi.md#updateGroup) | **PUT** /groups/{groupId} | 
 
 
 ## Documentation for Models
 
+ - [ContactEnvelope](docs/ContactEnvelope.md)
+ - [ContactFields](docs/ContactFields.md)
+ - [ContactListEnvelope](docs/ContactListEnvelope.md)
+ - [ContactUpdateFields](docs/ContactUpdateFields.md)
+ - [EmptyObject](docs/EmptyObject.md)
  - [ErrorItem](docs/ErrorItem.md)
  - [ErrorResponse](docs/ErrorResponse.md)
  - [FetchBlacklistSuccess](docs/FetchBlacklistSuccess.md)
+ - [GroupEnvelope](docs/GroupEnvelope.md)
+ - [GroupListEnvelope](docs/GroupListEnvelope.md)
+ - [GroupName](docs/GroupName.md)
+ - [GroupResponseFields](docs/GroupResponseFields.md)
  - [NumberToBlacklist](docs/NumberToBlacklist.md)
  - [ResponseErrorCode](docs/ResponseErrorCode.md)
  - [ResponseErrorTitle](docs/ResponseErrorTitle.md)

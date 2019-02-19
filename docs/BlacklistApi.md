@@ -1,13 +1,13 @@
 # BlacklistApi
 
-All URIs are relative to *https://api.messente.com/v1*
+All URIs are relative to *https://api.messente.com/v1/phonebook*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addToBlacklist**](BlacklistApi.md#addToBlacklist) | **POST** /phonebook/blacklist | 
-[**fetchBlacklist**](BlacklistApi.md#fetchBlacklist) | **GET** /phonebook/blacklist | 
-[**isBlacklisted**](BlacklistApi.md#isBlacklisted) | **GET** /phonebook/blacklist/{phone_number} | 
-[**removeFromBlacklist**](BlacklistApi.md#removeFromBlacklist) | **DELETE** /phonebook/blacklist/{phone_number} | 
+[**addToBlacklist**](BlacklistApi.md#addToBlacklist) | **POST** /blacklist | 
+[**fetchBlacklist**](BlacklistApi.md#fetchBlacklist) | **GET** /blacklist | 
+[**isBlacklisted**](BlacklistApi.md#isBlacklisted) | **GET** /blacklist/{phone} | 
+[**removeFromBlacklist**](BlacklistApi.md#removeFromBlacklist) | **DELETE** /blacklist/{phone} | 
 
 
 <a name="addToBlacklist"></a>
@@ -115,7 +115,7 @@ This endpoint does not need any parameter.
 
 <a name="isBlacklisted"></a>
 # **isBlacklisted**
-> isBlacklisted(phoneNumber)
+> isBlacklisted(phone)
 
 
 
@@ -138,9 +138,9 @@ basicAuth.setUsername("YOUR USERNAME");
 basicAuth.setPassword("YOUR PASSWORD");
 
 BlacklistApi apiInstance = new BlacklistApi();
-String phoneNumber = "phoneNumber_example"; // String | A phone number
+String phone = "phone_example"; // String | A phone number
 try {
-    apiInstance.isBlacklisted(phoneNumber);
+    apiInstance.isBlacklisted(phone);
 } catch (ApiException e) {
     System.err.println("Exception when calling BlacklistApi#isBlacklisted");
     e.printStackTrace();
@@ -151,7 +151,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **phoneNumber** | **String**| A phone number |
+ **phone** | **String**| A phone number |
 
 ### Return type
 
@@ -168,7 +168,7 @@ null (empty response body)
 
 <a name="removeFromBlacklist"></a>
 # **removeFromBlacklist**
-> removeFromBlacklist(phoneNumber)
+> removeFromBlacklist(phone)
 
 
 
@@ -191,9 +191,9 @@ basicAuth.setUsername("YOUR USERNAME");
 basicAuth.setPassword("YOUR PASSWORD");
 
 BlacklistApi apiInstance = new BlacklistApi();
-String phoneNumber = "phoneNumber_example"; // String | A phone number
+String phone = "phone_example"; // String | A phone number
 try {
-    apiInstance.removeFromBlacklist(phoneNumber);
+    apiInstance.removeFromBlacklist(phone);
 } catch (ApiException e) {
     System.err.println("Exception when calling BlacklistApi#removeFromBlacklist");
     e.printStackTrace();
@@ -204,7 +204,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **phoneNumber** | **String**| A phone number |
+ **phone** | **String**| A phone number |
 
 ### Return type
 

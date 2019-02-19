@@ -4,7 +4,7 @@
   "artifactDescription": "Java client for Messente Phonebook API",
   "artifactId": "phonebook-java",
   "artifactUrl": "https://github.com/messente/messente-phonebook-java",
-  "artifactVersion": "0.2.0",
+  "artifactVersion": "0.3.0",
   "developerEmail": "admin@messente.com",
   "developerName": "Messente",
   "developerOrganization": "Messente Communications",

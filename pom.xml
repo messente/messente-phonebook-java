@@ -5,7 +5,7 @@
     <artifactId>phonebook-java</artifactId>
     <packaging>jar</packaging>
     <name>phonebook-java</name>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
     <url>https://github.com/messente/messente-phonebook-java</url>
     <description>Java client for Messente Phonebook API</description>
     <scm>
