@@ -47,7 +47,7 @@ public class ContactFields {
 
   public static final String SERIALIZED_NAME_COMPANY = "company";
   @SerializedName(SERIALIZED_NAME_COMPANY)
-  private Integer company;
+  private String company;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -141,7 +141,7 @@ public class ContactFields {
     this.lastName = lastName;
   }
 
-  public ContactFields company(Integer company) {
+  public ContactFields company(String company) {
     this.company = company;
     return this;
   }
@@ -151,11 +151,11 @@ public class ContactFields {
    * @return company
   **/
   @ApiModelProperty(value = "")
-  public Integer getCompany() {
+  public String getCompany() {
     return company;
   }
 
-  public void setCompany(Integer company) {
+  public void setCompany(String company) {
     this.company = company;
   }
 

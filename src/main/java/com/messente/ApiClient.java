@@ -89,7 +89,7 @@ public class ApiClient {
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
-
+    
     private void init() {
         httpClient = new OkHttpClient();
 
