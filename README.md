@@ -67,7 +67,7 @@ import com.messente.*;
 import com.messente.auth.*;
 import com.messente.phonebook.*;
 
-public class BlacklistApiExample {
+public class PhoneBookExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
@@ -77,36 +77,76 @@ public class BlacklistApiExample {
         basicAuth.setUsername("YOUR_MESSENTE_API_USERNAME");
         basicAuth.setPassword("YOUR_MESSENTE_API_PASSWORD");
 
-        BlacklistApi apiInstance = new BlacklistApi();
+        BlacklistApi blacklist = new BlacklistApi();
+        GroupsApi groups = new GroupsApi();
 
-        try {
-            FetchBlacklistSuccess response = apiInstance.fetchBlacklist();
-            System.out.println(response);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling fetchBlacklist");
-            e.printStackTrace();
-        }
-
-//      try {
-//          apiInstance.addToBlacklist(new NumberToBlacklist().phoneNumber("+37255555555"));
-//      } catch (ApiException e) {
-//          System.err.println("Exception when calling addToBlacklist");
-//          e.printStackTrace();
-//      }
+//        try {
+//            FetchBlacklistSuccess response = blacklist.fetchBlacklist();
+//            System.out.println(response);
+//        } catch (ApiException e) {
+//            System.err.println("Exception when calling fetchBlacklist");
+//            e.printStackTrace();
+//        }
 //
-//  try {
-//      apiInstance.isBlacklisted("+37255555555");
-//  } catch (ApiException e) {
-//      System.err.println("Exception when calling isBlacklisted");
-//      e.printStackTrace();
-//  }
+//        try {
+//            blacklist.addToBlacklist(new NumberToBlacklist().phoneNumber("SOME_PHONE"));
+//        } catch (ApiException e) {
+//            System.err.println("Exception when calling addToBlacklist");
+//            e.printStackTrace();
+//        }
 //
-//      try {
-//          apiInstance.removeFromBlacklist("+37255555555");
-//      } catch (ApiException e) {
-//          System.err.println("Exception when calling removeFromBlacklist");
-//          e.printStackTrace();
-//      }
+//        try {
+//            blacklist.isBlacklisted("SOME_PHONE");
+//        } catch (ApiException e) {
+//            System.err.println("Exception when calling isBlacklisted");
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            blacklist.deleteFromBlacklist("SOME_PHONE");
+//        } catch (ApiException e) {
+//            System.err.println("Exception when calling deleteFromBlacklist");
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            GroupEnvelope response = groups.createGroup(new GroupName().name("SOME_NAME"));
+//            System.out.println(response);
+//        } catch (ApiException e) {
+//            System.err.println("Exception when calling createGroup");
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            groups.deleteGroup("SOME_GROUP_UUID");
+//        } catch (ApiException e) {
+//            System.err.println("Exception when calling deleteGroup");
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            GroupEnvelope response = groups.fetchGroup("SOME_GROUP_UUID");
+//            System.out.println(response);
+//        } catch (ApiException e) {
+//            System.err.println("Exception when calling fetchGroup");
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            GroupListEnvelope response = groups.fetchGroups();
+//            System.out.println(response);
+//        } catch (ApiException e) {
+//            System.err.println("Exception when calling fetchGroups");
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            GroupEnvelope response = groups.updateGroup("SOME_GROUP_UUID", new GroupName().name("SOME_NAME"));
+//            System.out.println(response);
+//        } catch (ApiException e) {
+//            System.err.println("Exception when calling updateGroup");
+//            e.printStackTrace();
+//        }
     }
 }
 ```
