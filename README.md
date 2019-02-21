@@ -80,6 +80,7 @@ public class PhoneBookExample {
 
         BlacklistApi blacklist = new BlacklistApi();
         GroupsApi groups = new GroupsApi();
+        ContactsApi contacts = new ContactsApi();
 
 //        try {
 //            FetchBlacklistSuccess response = blacklist.fetchBlacklist();
