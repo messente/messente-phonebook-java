@@ -63,6 +63,7 @@ Then manually install the following JARs:
 Please follow the [installation](#installation) instruction and execute the following Java code:
 
 ```java
+import java.util.Arrays;
 import com.messente.*;
 import com.messente.auth.*;
 import com.messente.phonebook.*;
@@ -145,6 +146,97 @@ public class PhoneBookExample {
 //            System.out.println(response);
 //        } catch (ApiException e) {
 //            System.err.println("Exception when calling updateGroup");
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            EmptyObject response = contacts.addContactToGroup("SOME_GROUP_UUID", "SOME_PHONE");
+//            System.out.println(response);
+//        } catch (ApiException e) {
+//            System.err.println("Exception when calling addContactToGroup");
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            ContactEnvelope response = contacts.fetchContact("SOME_PHONE");
+//            System.out.println(response);
+//        } catch (ApiException e) {
+//            System.err.println("Exception when calling fetchContact");
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            GroupListEnvelope response = contacts.fetchContactGroups("SOME_PHONE");
+//            System.out.println(response);
+//        } catch (ApiException e) {
+//            System.err.println("Exception when calling fetchContactGroups");
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            ContactListEnvelope response = contacts
+//                    .fetchContacts(Arrays.asList("SOME_GROUP_UUID", "SOME_OTHER_GROUP_UUID"));
+//            System.out.println(response);
+//        } catch (ApiException e) {
+//            System.err.println("Exception when calling fetchContacts");
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            ContactListEnvelope response = contacts.fetchContacts(Arrays.asList());
+//            System.out.println(response);
+//        } catch (ApiException e) {
+//            System.err.println("Exception when calling fetchContacts");
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            ContactFields contactFields = new ContactFields();
+//            contactFields.phoneNumber("987654321");
+//            contactFields.email("SOME EMAIL");
+//            contactFields.firstName("SOME FIRST NAME");
+//            contactFields.lastName("SOME LAST NAME");
+//            contactFields.company("SOME COMPANY");
+//            contactFields.title("SOME TITLE");
+//            contactFields.custom("SOME CUSTOM");
+//            contactFields.custom2("SOME CUSTOM2");
+//            contactFields.custom3("SOME CUSTOM3");
+//            contactFields.custom4("SOME CUSTOM4");
+//            ContactEnvelope response = contacts.createContact(contactFields);
+//            System.out.println(response);
+//        } catch (ApiException e) {
+//            System.err.println("Exception when calling createContact");
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            contacts.deleteContact("SOME_PHONE");
+//        } catch (ApiException e) {
+//            System.err.println("Exception when calling deleteContact");
+//            e.printStackTrace();
+//        }
+//        try {
+//            contacts.removeContactFromGroup("SOME_GROUP_UUID", "SOME_PHONE");
+//        } catch (ApiException e) {
+//            System.err.println("Exception when calling removeContactFromGroup");
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            ContactUpdateFields contactUpdateFields = new ContactUpdateFields();
+//            contactUpdateFields.email("SOME NEW EMAIL");
+//            contactUpdateFields.firstName("SOME NEW FIRST NAME");
+//            contactUpdateFields.lastName("SOME NEW LAST NAME");
+//            contactUpdateFields.company("SOME NEW COMPANY");
+//            contactUpdateFields.title("SOME NEW TITLE");
+//            contactUpdateFields.custom("SOME NEW CUSTOM");
+//            contactUpdateFields.custom2("SOME NEW CUSTOM2");
+//            contactUpdateFields.custom3("SOME NEW CUSTOM3");
+//            contactUpdateFields.custom4("SOME NEW CUSTOM4");
+//            ContactEnvelope response = contacts.updateContact("SOME_PHONE", contactUpdateFields);
+//            System.out.println(response);
+//        } catch (ApiException e) {
+//            System.err.println("Exception when calling updateContact");
 //            e.printStackTrace();
 //        }
     }
